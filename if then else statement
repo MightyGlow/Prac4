@@ -1,0 +1,11 @@
+DECLARE
+	a number:=10;
+	b number:=50;
+BEGIN
+	IF a>b THEN
+		DBMS_OUTPUT.PUT_LINE('a is Greater than b');
+	ELSE
+        DBMS_OUTPUT.PUT_LINE('b is Greater than a');
+	END IF;
+	DBMS_OUTPUT.PUT_LINE('Done By Mohammed Affan');
+END;
