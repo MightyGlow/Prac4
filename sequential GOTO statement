@@ -1,0 +1,14 @@
+DECLARE
+    done BOOLEAN;
+BEGIN 
+    FOR i IN 1..10 LOOP
+        dbms_output.put_line(i);
+        IF done THEN
+        GOTO end_loop;
+        END IF;
+		<<end_loop>>
+			NULL;
+		END LOOP;
+		DBMS_OUTPUT.PUT_LINE('Done By Mohammed Affan');
+	END;
+
