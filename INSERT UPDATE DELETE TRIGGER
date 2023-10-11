@@ -1,0 +1,40 @@
+CREATE TABLE employee_info(
+    ID NUMBER(3),
+    NAME CHAR(20),
+	AGE NUMBER(3),
+    ADDRESS VARCHAR(20),
+    SALARY NUMBER
+);
+INSERT INTO employee_info VALUES(1,'Affan',19,'MIRA ROAD',90000);
+INSERT INTO employee_info VALUES(2,'Anwar',19,'JOGESHWARI',80000);
+INSERT INTO employee_info VALUES(3,'Sibtain',19,'MALAD',85000);
+INSERT INTO employee_info VALUES(4,'Tayyab',19,'MAHIM',87000);
+SELECT * FROM employee_info;
+
+CREATE OR REPLACE TRIGGER display_salary_changes_
+BEFORE DELETE OR INSERT OR UPDATE ON employee_info
+FOR EACH ROW
+WHEN (NEW.ID>0)
+DECLARE
+	sal_diff number;
+BEGIN
+	sal_diff:= :NEW.SALARY - :OLD.SALARY;
+	DBMS_OUTPUT.PUT_LINE('Old Salary:'|| :OLD.SALARY);
+	DBMS_OUTPUT.PUT_LINE('New Salary:'|| :NEW.SALARY);
+	DBMS_OUTPUT.PUT_LINE('Salary Difference:'|| sal_diff);
+END;
+/
+INSERT INTO employee_info (ID,NAME,AGE,ADDRESS,SALARY)VALUES(5,'Dastagir',19,'BANDRA',86000);
+
+UPDATE employee_info
+SET SALARY=SALARY+500
+WHERE ID=2;
+
+DELETE employee_info
+WHERE ID=4;
+
+SELECT * FROM employee_info;
+    
+BEGIN
+	DBMS_OUTPUT.PUT_LINE('Done By Mohammed Affan');
+END;
