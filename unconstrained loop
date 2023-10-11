@@ -1,0 +1,14 @@
+DECLARE
+	x NUMBER:=10;
+BEGIN
+	LOOP
+		DBMS_OUTPUT.PUT_LINE(x);
+		x:=x+10;
+		IF x>50 THEN
+			exit;
+		END IF;
+	END LOOP;
+		DBMS_OUTPUT.PUT_LINE('After Exit x is:'||x);
+		DBMS_OUTPUT.PUT_LINE('Done By Mohammed Affan');
+	END;
+
