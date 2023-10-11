@@ -1,0 +1,9 @@
+DECLARE 
+	a number(2):=10;
+BEGIN
+	WHILE a<15 LOOP
+		DBMS_OUTPUT.PUT_LINE('Value of a:'|| a);
+			a:=a+1;
+		END LOOP;
+		DBMS_OUTPUT.PUT_LINE('Done By Mohammed Affan');
+END;
