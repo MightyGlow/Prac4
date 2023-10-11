@@ -36,3 +36,19 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE('Done By Mohammed Affan ');
 END;
 /
+
+
+DECLARE
+   CURSOR c_info IS
+      SELECT name
+      FROM work_info
+      ORDER BY name
+      FETCH FIRST 2 ROWS ONLY;
+   t_info_names VARCHAR2(20);  -- Declare a single string variable.
+
+BEGIN
+   FOR r_info IN c_info LOOP
+      t_info_names := r_info.name; -- Store the name in the variable.
+      DBMS_OUTPUT.PUT_LINE(t_info_names);
+   END LOOP;
+END;
