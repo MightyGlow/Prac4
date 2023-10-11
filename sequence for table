@@ -1,0 +1,16 @@
+CREATE SEQUENCE students
+START WITH 1
+INCREMENT BY 1
+MINVALUE 0
+MAXVALUE 100
+CYCLE;
+CREATE TABLE studentinfo(
+    ID NUMBER(10),
+    NAME CHAR(20)
+);
+INSERT INTO studentinfo VALUES(students.nextval,'Rohan');
+INSERT INTO studentinfo VALUES(students.nextval,'Rehmaan');
+SELECT * FROM studentinfo;
+BEGIN
+DBMS_OUTPUT.PUT_LINE('Done By Mohammed Affan');
+END;
